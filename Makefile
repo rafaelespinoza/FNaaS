@@ -21,3 +21,6 @@ lint:
 
 lintfix:
 	$(NODE_MODULES_BIN)/ts-standard --fix
+
+cf-dev:
+	$(NODE_MODULES_BIN)/wrangler dev --local
