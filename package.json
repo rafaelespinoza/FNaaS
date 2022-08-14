@@ -1,0 +1,24 @@
+{
+  "name": "FNaaS",
+  "version": "0.0.0",
+  "description": "fibonacci numbers as a service",
+  "main": "main.js",
+  "scripts": {
+    "clean": "make clean",
+    "build": "make build",
+    "lint": "make lint",
+    "lintfix": "make lintfix",
+    "test": "make test"
+  },
+  "author": "",
+  "license": "ISC",
+  "private": true,
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.3",
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/node": "^18.7.3",
+    "ava": "^4.3.1",
+    "ts-standard": "^11.0.0",
+    "typescript": "^4.7.4"
+  }
+}
