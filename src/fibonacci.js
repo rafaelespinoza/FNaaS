@@ -1,5 +1,6 @@
 export default (lo, hi) => {
   const maxResultLength = 100
+  const loMax = 1024
 
   const results = []
 
@@ -13,6 +14,10 @@ export default (lo, hi) => {
   }
   if (lo < 0) {
     const err = new Error('lo must be >= 0')
+    return { Results: results, Err: err }
+  }
+  if (lo >= loMax) {
+    const err = new Error('lo is too high')
     return { Results: results, Err: err }
   }
   if (hi - lo > maxResultLength) {

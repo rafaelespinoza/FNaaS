@@ -25,6 +25,7 @@ test('rejects NaN', (t) => {
 test('range errors', (t) => {
   runTest(t, 3, 0, { Results: [], Err: new Error('hi') })
   runTest(t, -1, 3, { Results: [], Err: new Error('lo') })
+  runTest(t, 2048, 2050, { Results: [], Err: new Error('too high') })
   runTest(t, 0, 999999999999, { Results: [], Err: new Error('must be <=') })
 })
 

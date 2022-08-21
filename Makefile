@@ -15,5 +15,5 @@ lint:
 lintfix:
 	$(NODE_MODULES_BIN)/standard --fix
 
-cf-dev:
-	$(NODE_MODULES_BIN)/wrangler dev --local
+wrangler:
+	$(NODE_MODULES_BIN)/wrangler $(ARGS)
