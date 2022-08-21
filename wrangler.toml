@@ -1,9 +1,8 @@
 name = "fnaas"
-main = "dst/src/cloudflare-worker.js"
+main = "src/cloudflare-worker.js"
 compatibility_date = "2022-08-14"
 node_compat = true
 minify = false
 
 [build]
-  command = "make cleanbuild"
-  watch_dir = "./src"
+  watch_dir = "src"

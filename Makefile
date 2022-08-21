@@ -1,26 +1,19 @@
 NODE_MODULES_BIN=node_modules/.bin
 DST_DIR=dst
 
+.PHONY: test
+
 install:
 	npm install
 
-clean:
-	rm -rf $(DST_DIR) && mkdir -pv $(DST_DIR)
-
-build:
-	$(NODE_MODULES_BIN)/tsc --outDir $(DST_DIR) -d --declarationMap --sourceMap --strict
-
-test: build
+test:
 	$(NODE_MODULES_BIN)/ava
 
-cleanbuild: clean build
-cleantest: cleanbuild test
-
 lint:
-	$(NODE_MODULES_BIN)/ts-standard
+	$(NODE_MODULES_BIN)/standard
 
 lintfix:
-	$(NODE_MODULES_BIN)/ts-standard --fix
+	$(NODE_MODULES_BIN)/standard --fix
 
 cf-dev:
 	$(NODE_MODULES_BIN)/wrangler dev --local
