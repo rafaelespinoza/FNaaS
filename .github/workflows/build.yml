@@ -1,0 +1,19 @@
+name: build
+on: [push, pull_request]
+jobs:
+  all:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+    - name: Setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+        cache: 'npm'
+    - name: Get dependencies
+      run: make cleaninstall
+    - name: Test source
+      run: make test
+    - name: Lint source
+      run: make lint

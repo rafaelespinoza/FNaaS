@@ -6,6 +6,9 @@ DST_DIR=dst
 install:
 	npm install
 
+cleaninstall:
+	npm ci
+
 test:
 	$(NODE_MODULES_BIN)/ava
 
