@@ -3,9 +3,16 @@ import CalculateFibonacciNumbers from './fibonacci.js'
 
 /* global Response */
 
+const jsonReplacer = (_key, val) => {
+  // Here's another goofy thing about BigInt, it cannot be serialized into JSON
+  // without specialized libraries. I would rather not go that far. So instead,
+  // just make it a string.
+  return typeof val === 'bigint' ? val.toString() : val
+}
+
 const makeResponse = (code, body) => (
   new Response(
-    JSON.stringify(body),
+    JSON.stringify(body, jsonReplacer),
     {
       status: code,
       headers: {

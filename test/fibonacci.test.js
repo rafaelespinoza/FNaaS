@@ -10,10 +10,10 @@ function runTest (t, lo, hi, expected) {
   } else {
     t.falsy(actual.Err)
   }
-  t.is(actual.Results.length, expected.Results.length)
+  t.is(actual.Results.length, expected.Results.length, actual.Results.toString())
 
   actual.Results.forEach((got, ind) => {
-    t.is(got, expected.Results[ind], `index ${ind}`)
+    t.is(got, expected.Results[ind], `index ${ind}; actual vals: ${actual.Results}`)
   })
 }
 
@@ -34,4 +34,16 @@ test('it works', (t) => {
   runTest(t, 5, 10, { Results: [5, 8, 13, 21, 34] })
   runTest(t, 20, 25, { Results: [6765, 10946, 17711, 28657, 46368] })
   runTest(t, 0, 22, { Results: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946] })
+
+  // Test BigInt
+  runTest(t, 76, 82, {
+    Results: [
+      3416454622906707,
+      5527939700884757,
+      8944394323791464,
+      14472334024676221n,
+      23416728348467685n,
+      37889062373143906n
+    ]
+  })
 })
