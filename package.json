@@ -17,7 +17,7 @@
   },
   "engine-strict": true,
   "devDependencies": {
-    "ava": "^4.3.1",
+    "ava": "^4.3.3",
     "standard": "^17.0.0",
     "wrangler": "^2.0.25"
   }
